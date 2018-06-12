@@ -1,40 +1,33 @@
 'use strict';
-let rock=1;
-let paper=2;
-let scissors=3;
+
 const computerChoice = Math.floor(Math.random() * 3) + 1;
 const playerChoice = function(num){
-  if (num !== 1 ||
-    num !== 2 ||
-    num !== 3 ){
-    throw new Error('Please enter 1, 2, or 3');
-  }
+  if(num < 0 || num > 3) throw new Error ('Please enter 1, 2, or 3');
   if(num===1 && computerChoice===2){
-    return 'Player wins!';
+    return ' Paper beats rock, Player wins!';
   }
   else if(num===2 && computerChoice===3){
-    return 'Player wins!';
+    return 'Scissors beats paper, Player wins!';
   }
   else if(num===3 && computerChoice===1){
-    return 'Player wins!';
+    return 'Rock beats scissors, Player wins!';
   }
   else if(num===1 && computerChoice===3){
-    return 'Computer wins!';
+    return 'Rock beats scissors, Computer wins!';
   }
   else if(num===2 && computerChoice===1){
-    return 'Computer wins!';
+    return 'Paper beats rock, Computer wins!';
   }
   else if(num===3 && computerChoice===2){
-    return 'Computer wins!';
+    return 'Scissors beats paper, Computer wins!';
   }
   else if(num===computerChoice){
     return 'It\'s a tie!';
   }
 };
 try{
-  playerChoice(4);
+  console.log(playerChoice(1));
 }catch(e){
-  console.error(e.message);
+  console.log(e.message);
 }
 
-playerChoice(2);
